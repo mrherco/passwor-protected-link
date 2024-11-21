@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password-Protected Link</title>
+    <title>Password-Protected Link Tool</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -37,15 +37,13 @@
     </div>
 
     <!-- Decryption Section -->
-    <div id="decrypt-section">
-        <h2>Enter Password to Access the Link</h2>
+    <div id="decrypt-section" class="hidden">
+        <h2>Enter Password to Log In</h2>
         <input type="password" id="decrypt-password" placeholder="Enter Password" required>
-        <button onclick="accessLink()">Access Link</button>
-        <p id="decrypted-url"></p>
+        <button onclick="accessLink()">Log In</button>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
-s
