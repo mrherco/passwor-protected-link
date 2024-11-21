@@ -11,7 +11,7 @@ function generateProtectedPage() {
     // Encrypt the URL
     const encrypted = CryptoJS.AES.encrypt(url, password).toString();
 
-    // Generate a link with embedded encrypted data
+    // URL-encode the encrypted string before passing it as a query parameter
     const generatedLink = `${window.location.origin}${window.location.pathname}?data=${encodeURIComponent(encrypted)}`;
 
     // Show the generated link
@@ -31,8 +31,11 @@ function accessLink() {
     }
 
     try {
+        // Decode the encrypted URL from the query parameter
+        const decodedData = decodeURIComponent(encryptedData);
+
         // Decrypt the encrypted URL
-        const bytes = CryptoJS.AES.decrypt(encryptedData, password);
+        const bytes = CryptoJS.AES.decrypt(decodedData, password);
         const decrypted = bytes.toString(CryptoJS.enc.Utf8);
 
         if (!decrypted) {
