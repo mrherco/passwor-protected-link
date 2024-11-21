@@ -39,8 +39,8 @@ function accessLink() {
             throw new Error("Decryption failed");
         }
 
-        // Display the decrypted URL
-        document.getElementById("decrypted-url").innerHTML = `<a href="${decrypted}" target="_blank">${decrypted}</a>`;
+        // Redirect to the decrypted URL
+        window.location.href = decrypted;
     } catch (error) {
         alert("Decryption failed. Please check your password.");
     }
